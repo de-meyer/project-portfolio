@@ -1,6 +1,50 @@
+'use client'
 import Link from "next/link";
+import { Octokit, App } from "octokit";
+import { useState } from "react";
 
+
+const octokit = new Octokit({
+  userAgent: 'project-portfolio/v1.0.0',
+  log: {
+    debug: () => {},
+    info: () => {},
+    warn: console.warn,
+    error: console.error
+  }
+});
+type props = {
+  repo: GithubResponseData
+}
+function Tile({repo}: props){
+  return(
+    <>
+    <p key={repo.id}>
+      {repo.id}, {repo.name}
+    </p>
+    </>
+  )
+}
+interface GithubResponseData {
+  id: number;
+  node_id: string;
+  name: string;
+  full_name: string;
+}
 export default function HomePage() {
+  const caption = 'Github Api request'
+  const [list, setList] = useState<GithubResponseData[]>([]);
+
+  async function calling(){
+    console.log("clicked");
+    
+    const {data: listOfRepos} = await octokit.rest.repos.listForUser({
+      username: 'p-runge',
+      direction: 'desc',
+      type: 'owner',
+    });
+    setList(listOfRepos);  
+  }
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
@@ -31,6 +75,10 @@ export default function HomePage() {
             </div>
           </Link>
         </div>
+        <button onClick={calling}>{caption}</button>
+        {list.map((repo) => (
+        <Tile repo={repo}></Tile>
+        ))}
       </div>
     </main>
   );
