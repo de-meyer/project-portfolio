@@ -1,84 +1,51 @@
-'use client'
-import Link from "next/link";
+"use client";
 import { Octokit, App } from "octokit";
 import { useState } from "react";
-
+import Tile from "../components/Tile";
+import GithubResponseData from "../types/GithubResponseData";
+import Navbar from "../components/Navbar";
 
 const octokit = new Octokit({
-  userAgent: 'project-portfolio/v1.0.0',
+  userAgent: "project-portfolio/v1.0.0",
   log: {
     debug: () => {},
     info: () => {},
     warn: console.warn,
-    error: console.error
-  }
+    error: console.error,
+  },
 });
-type props = {
-  repo: GithubResponseData
-}
-function Tile({repo}: props){
-  return(
-    <>
-    <p key={repo.id}>
-      {repo.id}, {repo.name}
-    </p>
-    </>
-  )
-}
-interface GithubResponseData {
-  id: number;
-  node_id: string;
-  name: string;
-  full_name: string;
-}
-export default function HomePage() {
-  const caption = 'Github Api request'
-  const [list, setList] = useState<GithubResponseData[]>([]);
 
-  async function calling(){
-    console.log("clicked");
-    
-    const {data: listOfRepos} = await octokit.rest.repos.listForUser({
-      username: 'p-runge',
-      direction: 'desc',
-      type: 'owner',
+export default function HomePage() {
+  const caption = "Github Api request";
+  const [list, setList] = useState<GithubResponseData[]>([]);
+  const githubUsername = "p-runge";
+  async function calling() {
+    const { data: listOfRepos } = await octokit.rest.repos.listForUser({
+      username: githubUsername,
+      direction: "desc",
+      type: "owner",
     });
-    setList(listOfRepos);  
+
+    setList(listOfRepos);
   }
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+    <main className="grid min-h-screen grid-cols-12 flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white ">
+      <div className="container col-span-2">
+        <Navbar></Navbar>
+      </div>
+      <div className="container col-span-8 flex flex-col items-center justify-center gap-12 px-4 py-16 ">
         <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
+          Repositories of:{" "}
+          <span className="text-[hsl(280,100%,70%)]">
+            {githubUsername.toUpperCase()}
+          </span>
         </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
-          </Link>
-        </div>
         <button onClick={calling}>{caption}</button>
-        {list.map((repo) => (
-        <Tile repo={repo}></Tile>
-        ))}
+        <div className="grid sm:grid-cols-1 sm:gap-4 md:gap-4 lg:grid-cols-3 lg:gap-4">
+          {list.map((repo) => (
+            <Tile repo={repo}></Tile>
+          ))}
+        </div>
       </div>
     </main>
   );
