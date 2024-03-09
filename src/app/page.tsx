@@ -2,14 +2,14 @@
 import { Octokit, App } from "octokit";
 import { useState } from "react";
 import Tile from "../components/Tile";
-import GithubResponseData from "../types/GithubResponseData";
+import type GithubResponseData from "../types/GithubResponseData";
 import Navbar from "../components/Navbar";
 
 const octokit = new Octokit({
   userAgent: "project-portfolio/v1.0.0",
   log: {
-    debug: () => {},
-    info: () => {},
+    debug: console.debug,
+    info: console.info,
     warn: console.warn,
     error: console.error,
   },
