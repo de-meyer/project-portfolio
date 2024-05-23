@@ -20,6 +20,7 @@ export default function HomePage() {
   const [list, setList] = useState<GithubResponseData[]>([]);
   const [githubUsername, setGithubUsername] = useState("");
   async function calling(githubUsername: string) {
+    setGithubUsername(githubUsername);
     const { data: listOfRepos } = await octokit.rest.repos.listForUser({
       username: githubUsername,
       direction: "desc",
