@@ -10,7 +10,7 @@ export default function Tile({ repo }: props) {
         href={repo.html_url}
         target="_blank"
         rel="noreferrer"
-        className="relative flex flex-col rounded-lg bg-white bg-clip-border text-gray-700 shadow-md"
+        className="relative flex h-full flex-col rounded-lg bg-white bg-clip-border text-gray-700 shadow-md"
         key={repo.id}
       >
         <div className="p-6">
