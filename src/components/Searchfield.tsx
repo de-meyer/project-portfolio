@@ -11,16 +11,16 @@ export default function Searchfield({
     event.key === "Enter" ? searchForUser(githubUsername) : "";
   };
   return (
-    <div className="block">
+    <div className="">
       <input
-        className="mx-4 select-none rounded-lg px-6 py-3 text-center align-middle font-sans text-lg font-bold text-black "
+        className="select-none rounded-l-lg px-6 py-3 text-center align-middle font-sans font-bold text-black "
         type="text"
         onKeyDown={searchOnEnter}
         placeholder={githubUsername}
         onChange={(event) => setGithubUsername(event.target.value)}
       />
       <button
-        className="select-none rounded-lg bg-[hsl(280,100%,70%)] px-6 py-3 text-center align-middle font-sans text-lg font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        className="select-none rounded-r-lg bg-[hsl(280,100%,70%)] px-6 py-3 text-center align-middle font-sans  font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         onClick={() => searchForUser(githubUsername)}
       >
         {caption}
