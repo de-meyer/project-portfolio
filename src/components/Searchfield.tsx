@@ -13,7 +13,7 @@ export default function Searchfield({
   return (
     <div className="">
       <input
-        className="select-none rounded-l-lg px-6 py-3 text-center align-middle font-sans font-bold text-black "
+        className="select-none rounded-l-lg px-6 py-3 text-center align-middle font-sans font-bold text-black focus:outline-none "
         type="text"
         onKeyDown={searchOnEnter}
         placeholder={githubUsername}
