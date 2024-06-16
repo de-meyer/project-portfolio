@@ -1,19 +1,11 @@
 "use client";
 import GithubResponseData from "../../types/GithubResponseData";
-import { octokit } from "../util/Octokit";
-
+import CustomGithubResponseData from "../../types/CustomGithubResponseData";
 type props = {
-  repo: GithubResponseData;
+  repo: CustomGithubResponseData;
 };
 
 export default function Tile({ repo }: props) {
-  /*const { data: listOfLanguages } = (repo.owner.name &&
-    repo.name &&
-    (await octokit.rest.repos.listLanguages({
-      owner: repo.owner.name,
-      repo: repo.name,
-    }))) || { data: {} };
-*/
   return (
     <div className="rounded-lg shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/40">
       {
@@ -31,6 +23,7 @@ export default function Tile({ repo }: props) {
             <p className="block h-20 overflow-hidden font-sans text-base font-light leading-relaxed text-inherit antialiased">
               {repo.description}
             </p>
+            <p>{repo.language}</p>
           </div>
         </a>
       }
