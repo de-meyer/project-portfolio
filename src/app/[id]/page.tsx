@@ -13,10 +13,10 @@ export default async function Page({ params }: { params: { id: string } }) {
   });
 
   return (
-    <main className=" min-h-screen items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white ">
+    <main className=" text-s min-h-screen items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white  ">
       <header className="flex justify-between pl-5 pr-5 pt-5">
         <div>
-          <h2 className="text-xs font-medium text-white ">
+          <h2 className="font-medium text-white ">
             Repositories of:{" "}
             <img
               className="inline h-5 w-5 rounded-full"
