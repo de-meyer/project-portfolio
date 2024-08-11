@@ -1,6 +1,7 @@
 import Searchfield from "~/components/Searchfield";
 import { octokit } from "../util/Octokit";
 import Link from "next/link";
+import RepositoryList from "./RepositoryList";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { data: user } = await octokit.rest.users.getByUsername({
@@ -13,11 +14,11 @@ export default async function Page({ params }: { params: { id: string } }) {
         <div className="flex justify-between">
           <div>
             <h2 className="font-medium text-white ">
-              Repositories of:{" "}
+              Profile of:{" "}
               <img
                 className="inline h-5 w-5 rounded-full"
                 src={user.avatar_url}
-                alt=""
+                alt="Avatar of the given user"
               />{" "}
               <span className="text-[hsl(280,100%,70%)]">
                 {params.id.toUpperCase()}
@@ -30,6 +31,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         </div>
         <Link href={`/${params.id}/repositories`}>Repositories</Link>
       </header>
+      <RepositoryList params={params} />
     </main>
   );
 }
