@@ -1,13 +1,13 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { KeyboardEventHandler, use, useState } from "react";
+import { KeyboardEventHandler } from "react";
 
 export default function Searchfield() {
   const router = useRouter();
   const searchOnEnter: KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.key === "Enter") {
       event.currentTarget.value;
-      router.push("/" + event.currentTarget.value);
+      router.push("/" + event.currentTarget.value + "/profile");
     }
   };
   return (
