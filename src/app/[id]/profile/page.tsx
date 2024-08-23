@@ -6,8 +6,15 @@ export default async function page({ params }: { params: { id: string } }) {
   });
   return (
     <main className=" text-s min-h-screen items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white  ">
-      <img src={user.avatar_url} alt="avatar" className=" rounded-full" />
-      <div>{user.name}</div>
+      <figure>
+        <img
+          src={user.avatar_url}
+          alt="image of the users avatar"
+          title="image of the users avatar"
+          className=" rounded-full"
+        />
+        <figcaption>{user.name}</figcaption>
+      </figure>
     </main>
   );
 }

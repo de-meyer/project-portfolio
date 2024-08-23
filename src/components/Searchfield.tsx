@@ -11,13 +11,13 @@ export default function Searchfield() {
     }
   };
   return (
-    <div className="">
+    <section>
       <input
         className="select-none rounded-lg px-3 py-3 align-middle font-sans font-medium text-black focus:outline-none "
         type="text"
         onKeyDown={searchOnEnter}
         placeholder="Search github user..."
       />
-    </div>
+    </section>
   );
 }
