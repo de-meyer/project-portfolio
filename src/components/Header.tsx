@@ -3,21 +3,21 @@ import Link from "next/link";
 import { AiOutlineNumber, AiFillRead, AiFillGithub } from "react-icons/ai";
 export default function Header({ params }: { params: { id: string } }) {
   return (
-    <header className=" border-b-2 bg-blue-950 p-5 text-white">
+    <header className="col-span-full border-b-2 bg-blue-950 p-5 text-white">
       <div className="flex justify-between">
-        <div>
+        <article>
           <h2 className="font-medium text-white ">
             Profile of:{" "}
             <span className="text-[hsl(280,100%,70%)]">
               {params.id.toUpperCase()}
             </span>
           </h2>
-        </div>
-        <div>
+        </article>
+        <section>
           <Searchfield />
-        </div>
+        </section>
       </div>
-      <div className="flex gap-5">
+      <nav className="flex gap-5">
         <Link
           href={`/${params.id}/profile`}
           className="inline-flex items-center"
@@ -36,7 +36,7 @@ export default function Header({ params }: { params: { id: string } }) {
         >
           <AiFillRead className="m-1" /> Activities
         </Link>
-      </div>
+      </nav>
     </header>
   );
 }

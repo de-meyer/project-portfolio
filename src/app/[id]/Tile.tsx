@@ -1,5 +1,4 @@
 "use client";
-import GithubResponseData from "../../types/GithubResponseData";
 import CustomGithubResponseData from "../../types/CustomGithubResponseData";
 type props = {
   repo: CustomGithubResponseData;
@@ -7,7 +6,7 @@ type props = {
 
 export default function Tile({ repo }: props) {
   return (
-    <div className="rounded-lg shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/40">
+    <div className="col-span-3 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/40">
       {
         <a
           href={repo.html_url}
@@ -16,7 +15,7 @@ export default function Tile({ repo }: props) {
           className="relative flex h-full flex-col rounded-lg bg-white bg-clip-border text-gray-700 shadow-md"
           key={repo.id}
         >
-          <div className="p-6">
+          <article className="p-6">
             <h5 className="text-blue-gray-900 mb-2 font-sans text-xl font-semibold leading-snug tracking-normal antialiased">
               {repo.name}
             </h5>
@@ -24,7 +23,7 @@ export default function Tile({ repo }: props) {
               {repo.description}
             </p>
             <p>{repo.language}</p>
-          </div>
+          </article>
         </a>
       }
     </div>

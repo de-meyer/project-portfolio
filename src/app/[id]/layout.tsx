@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import Header from "~/components/Header";
+import UserInfo from "~/components/UserInfo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,9 +15,16 @@ export default function MainLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>
+      <body className={`font-sans ${inter.variable} `}>
         <Header params={params} />
-        {children}
+        <section className="container grid grid-cols-12 gap-4">
+          <aside className="col-span-3">
+            <UserInfo params={params} />
+          </aside>
+          <main className=" text-s col-span-9 grid grid-cols-9 items-center justify-center gap-4    ">
+            {children}
+          </main>
+        </section>
       </body>
     </html>
   );
