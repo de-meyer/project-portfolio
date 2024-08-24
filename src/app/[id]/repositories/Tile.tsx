@@ -6,7 +6,7 @@ type props = {
 
 export default function Tile({ repo }: props) {
   return (
-    <div className="col-span-3 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/40">
+    <div className="col-span-3 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-violet-500/40">
       {
         <a
           href={repo.html_url}
