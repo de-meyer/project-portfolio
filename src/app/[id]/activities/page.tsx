@@ -1,15 +1,23 @@
+import GitHubCalendar from "react-github-calendar";
 import { octokit } from "~/app/util/Octokit";
+type Activity = {
+  date: string;
+  count: number;
+  level: 0 | 1 | 2 | 3 | 4;
+};
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { data: listPublicEvents } =
     await octokit.rest.activity.listPublicEventsForUser({
       username: params.id,
     });
-
   return (
     <>
+      <figcaption className=" col-span-9 rounded-lg border-2 border-violet-500 p-4">
+        <GitHubCalendar username={params.id} colorScheme="dark" />
+      </figcaption>
       {listPublicEvents.map((event) => (
-        <article className="col-span-9 rounded-lg border-2  bg-white p-6 text-gray-700">
+        <article className="col-span-9 rounded-lg border-2 border-violet-500 p-6 ">
           <time>
             {" "}
             {event.created_at &&
