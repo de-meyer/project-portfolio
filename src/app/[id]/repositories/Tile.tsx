@@ -1,5 +1,5 @@
 "use client";
-import CustomGithubResponseData from "../../types/CustomGithubResponseData";
+import CustomGithubResponseData from "../../../types/CustomGithubResponseData";
 type props = {
   repo: CustomGithubResponseData;
 };
