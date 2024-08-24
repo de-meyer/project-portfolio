@@ -12,11 +12,12 @@ export default async function Page({ params }: { params: { id: string } }) {
         <article className="col-span-9 rounded-lg border-2  bg-white p-6 text-gray-700">
           <time>
             {" "}
-            {new Date(event.created_at).toLocaleDateString("de-De", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {event.created_at &&
+              new Date(event.created_at).toLocaleDateString("de-De", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
           </time>
           <article className="flex justify-between">
             <p>{event.repo.name}</p>
