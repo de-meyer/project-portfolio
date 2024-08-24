@@ -19,11 +19,11 @@ export default function MainLayout({
         className={`font-sans ${inter.variable} min-h-screen bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white`}
       >
         <Header params={params} />
-        <section className="container mx-auto grid grid-cols-12 gap-4">
-          <aside className="col-span-3">
+        <section className="container mx-auto mt-5 grid grid-cols-12 gap-4">
+          <aside className="col-span-4">
             <UserInfo params={params} />
           </aside>
-          <main className=" text-s col-span-9 grid grid-cols-9 items-center justify-center gap-4    ">
+          <main className=" text-s col-span-8 grid grid-cols-9 items-center justify-center gap-4    ">
             {children}
           </main>
         </section>

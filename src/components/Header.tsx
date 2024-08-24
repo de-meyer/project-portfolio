@@ -1,6 +1,6 @@
 import Searchfield from "./Searchfield";
 import Link from "next/link";
-import { AiOutlineNumber, AiFillRead, AiFillGithub } from "react-icons/ai";
+import { AiOutlineNumber, AiFillRead } from "react-icons/ai";
 export default function Header({ params }: { params: { id: string } }) {
   return (
     <header className="col-span-full border-b-2 bg-blue-950 p-5 text-white">
@@ -18,12 +18,6 @@ export default function Header({ params }: { params: { id: string } }) {
         </section>
       </div>
       <nav className="flex gap-5">
-        <Link
-          href={`/${params.id}/profile`}
-          className="inline-flex items-center"
-        >
-          <AiFillGithub className="m-1" /> Profile
-        </Link>
         <Link
           href={`/${params.id}/repositories`}
           className="inline-flex items-center"

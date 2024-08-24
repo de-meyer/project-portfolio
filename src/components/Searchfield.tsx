@@ -7,7 +7,7 @@ export default function Searchfield() {
   const searchOnEnter: KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.key === "Enter") {
       event.currentTarget.value;
-      router.push("/" + event.currentTarget.value + "/profile");
+      router.push("/" + event.currentTarget.value + "/repositories");
     }
   };
   return (

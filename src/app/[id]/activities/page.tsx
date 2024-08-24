@@ -23,6 +23,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             <p>{event.repo.name}</p>
 
             <p>{event.type} </p>
+            <p>{event.payload.action}</p>
             <p className="flex justify-end">
               {" "}
               {event.public ? "public" : "private"}
