@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             <p>{event.type} </p>
             <p className="flex justify-end">
               {" "}
-              {event.public ? "public" : "private"}{" "}
+              {event.public ? "public" : "private"}
             </p>
           </article>
         </article>
