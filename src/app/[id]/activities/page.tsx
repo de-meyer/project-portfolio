@@ -12,12 +12,12 @@ export default async function Page({ params }: { params: { id: string } }) {
       username: params.id,
     });
   return (
-    <>
-      <figcaption className=" col-span-9 rounded-lg border-2 border-violet-500 p-4">
+    <section className="grid grid-cols-12 gap-4">
+      <figcaption className=" col-span-12 rounded-lg border-2 border-violet-500 p-4">
         <GitHubCalendar username={params.id} colorScheme="dark" />
       </figcaption>
       {listPublicEvents.map((event) => (
-        <article className="col-span-9 rounded-lg border-2 border-violet-500 p-6 ">
+        <article className="col-span-12 rounded-lg border-2 border-violet-500 p-6 ">
           <time className="mr-2">
             {event.created_at &&
               new Date(event.created_at).toLocaleDateString("de-De", {
@@ -48,6 +48,6 @@ export default async function Page({ params }: { params: { id: string } }) {
           </article>
         </article>
       ))}
-    </>
+    </section>
   );
 }

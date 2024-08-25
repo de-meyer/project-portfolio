@@ -8,10 +8,10 @@ export default async function Page({ params }: { params: { id: string } }) {
     type: "owner",
   });
   return (
-    <>
+    <div className="grid grid-flow-row auto-rows-fr grid-cols-9 gap-4">
       {listOfRepos.map((repo) => (
         <Tile repo={repo} key={repo.id} />
       ))}
-    </>
+    </div>
   );
 }

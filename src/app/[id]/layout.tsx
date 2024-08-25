@@ -23,7 +23,7 @@ export default function MainLayout({
           <aside className="col-span-4">
             <UserInfo params={params} />
           </aside>
-          <main className=" text-s col-span-8 grid grid-cols-9 items-center justify-center gap-4    ">
+          <main className="text-s col-span-8  items-center justify-center ">
             {children}
           </main>
         </section>
