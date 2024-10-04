@@ -3,7 +3,7 @@ import Link from "next/link";
 import { AiOutlineNumber, AiFillRead } from "react-icons/ai";
 export default function Header({ params }: { params: { id: string } }) {
   return (
-    <header className="col-span-full border-b-2 border-violet-500 bg-violet-900 p-5 text-white">
+    <header className="col-span-full p-5">
       <div className="flex justify-between">
         <article>
           <h2 className="font-medium text-white ">
